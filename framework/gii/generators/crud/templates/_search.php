@@ -25,12 +25,12 @@
 ?>
 	<div class="form-group">
 		<?php echo "<?php echo \$form->label(\$model,'{$column->name}'); ?>\n"; ?>
-		<?php echo "<?php echo ".$this->generateActiveField($this->modelClass,$column, array('class'=>'form-control col-lg-6'))."; ?>\n"; ?>
+		<?php echo "<?php echo ".$this->generateActiveField($this->modelClass,$column)."; ?>\n"; ?>
 	</div>
 
 <?php endforeach; ?>
 	<div class="form-group buttons">
-		<?php echo "<?php echo CHtml::submitButton('Search', array('class'=>'btn btn-primary')); ?>\n"; ?>
+		<?php echo "<?php echo CHtml::submitButton('Search'); ?>\n"; ?>
 	</div>
 
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>

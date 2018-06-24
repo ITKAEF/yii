@@ -178,7 +178,7 @@ class CrudCode extends CCodeModel
 		if($column->type==='boolean')
 			return "CHtml::activeCheckBox(\$model,'{$column->name}')";
 		elseif(stripos($column->dbType,'text')!==false)
-			return "CHtml::activeTextArea(\$model,'{$column->name}',array('rows'=>6, 'cols'=>50))";
+			return "CHtml::activeTextArea(\$model,'{$column->name}', array('class'=>'form-control col-lg-6', 'rows'=>6, 'cols'=>50))";
 		else
 		{
 			if(preg_match('/^(password|pass|passwd|passcode)$/i',$column->name))
@@ -187,12 +187,12 @@ class CrudCode extends CCodeModel
 				$inputField='activeTextField';
 
 			if($column->type!=='string' || $column->size===null)
-				return "CHtml::{$inputField}(\$model,'{$column->name}')";
+				return "CHtml::{$inputField}(\$model,'{$column->name}', array('class'=>'form-control col-lg-6')";
 			else
 			{
 				if(($size=$maxLength=$column->size)>60)
 					$size=60;
-				return "CHtml::{$inputField}(\$model,'{$column->name}',array('size'=>$size,'maxlength'=>$maxLength))";
+				return "CHtml::{$inputField}(\$model,'{$column->name}', array('class'=>'form-control col-lg-6', 'size'=>$size,'maxlength'=>$maxLength))";
 			}
 		}
 	}
@@ -207,7 +207,7 @@ class CrudCode extends CCodeModel
 		if($column->type==='boolean')
 			return "\$form->checkBox(\$model,'{$column->name}')";
 		elseif(stripos($column->dbType,'text')!==false)
-			return "\$form->textArea(\$model,'{$column->name}',array('rows'=>6, 'cols'=>50))";
+			return "\$form->textArea(\$model,'{$column->name}',array('class'=>'form-control col-lg-6', 'rows'=>6, 'cols'=>50))";
 		else
 		{
 			if(preg_match('/^(password|pass|passwd|passcode)$/i',$column->name))
@@ -216,12 +216,12 @@ class CrudCode extends CCodeModel
 				$inputField='textField';
 
 			if($column->type!=='string' || $column->size===null)
-				return "\$form->{$inputField}(\$model,'{$column->name}')";
+				return "\$form->{$inputField}(\$model,'{$column->name}', array('class'=>'form-control col-lg-6'))";
 			else
 			{
 				if(($size=$maxLength=$column->size)>60)
 					$size=60;
-				return "\$form->{$inputField}(\$model,'{$column->name}',array('size'=>$size,'maxlength'=>$maxLength))";
+				return "\$form->{$inputField}(\$model,'{$column->name}',array('class'=>'form-control col-lg-6', 'size'=>$size,'maxlength'=>$maxLength))";
 			}
 		}
 	}

@@ -31,7 +31,7 @@ foreach($this->tableSchema->columns as $column)
 	if($column->autoIncrement)
 		continue;
 ?>
-	<div class="form-group">
+	<div class="row">
 		<?php echo "<?php echo ".$this->generateActiveLabel($this->modelClass,$column)."; ?>\n"; ?>
 		<?php echo "<?php echo ".$this->generateActiveField($this->modelClass,$column)."; ?>\n"; ?>
 		<?php echo "<?php echo \$form->error(\$model,'{$column->name}'); ?>\n"; ?>
@@ -40,8 +40,8 @@ foreach($this->tableSchema->columns as $column)
 <?php
 }
 ?>
-	<div class="form-group buttons">
-		<?php echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn btn-primary')); ?>\n"; ?>
+	<div class="row buttons">
+		<?php echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? 'Create' : 'Save'); ?>\n"; ?>
 	</div>
 
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>
