@@ -55,19 +55,19 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-	<?php
-	$count=0;
-	foreach($this->tableSchema->columns as $column)
-	{
-		if(++$count==7)
-			echo "\t\t/*\n";
-		echo "\t\t'".$column->name."',\n";
-	}
-	if($count>=7)
-		echo "\t\t*/\n";
-	?>
-		array(
-			'class'=>'CButtonColumn',
-		),
+<?php
+$count=0;
+foreach($this->tableSchema->columns as $column)
+{
+	if(++$count==7)
+	echo "\t\t/*\n";
+	echo "\t\t'".$column->name."',\n";
+}
+if($count>=7)
+	echo "\t\t*/\n";
+?>
+	array(
+		'class'=>'CButtonColumn',
 	),
+),
 )); ?>
