@@ -23,7 +23,20 @@ $this->menu=array(
 
 <h1><?php echo $label; ?></h1>
 
-<?php echo "<?php"; ?> $this->widget('zii.widgets.CListView', array(
+<?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbGridView', array(
+	'id'=>'<?php echo $this->class2id($this->modelClass); ?>-grid',
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	'columns'=>array(
+	<?php
+	$count=0;
+	foreach($this->tableSchema->columns as $column)
+	{
+		if(++$count==7)
+			echo "\t\t/*\n";
+		echo "\t\t'".$column->name."',\n";
+	}
+	if($count>=7)
+		echo "\t\t*/\n";
+	?>
+	),
 )); ?>
